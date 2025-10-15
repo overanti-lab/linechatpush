@@ -10,9 +10,9 @@ app = Flask(__name__)
 
 # 
 cloudinary.config(
-    cloud_name=os.getenv("dylsdr7du"),
-    api_key=os.getenv("649716544998824"),
-    api_secret=os.getenv("wORn3-U8qwtn7TireXnmCHzcNqw")
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME","dylsdr7du"),
+    api_key=os.getenv("CLOUDINARY_API_KEY","649716544998824"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET","wORn3-U8qwtn7TireXnmCHzcNqw")
 )
 
 CHANNEL_ACCESS_TOKEN = os.getenv("ekIE/Q6WVZnS5t36l9UgrKFIpWsOJO3fkON6YjrnRJCiHgr1CIYykRIcYYM4JzGXG6t/z9zpl0bKyfezl4uWcMvQ7moZgThytwh/KyxEWwyoU+3LE5OdSYT1R/kMB+tDA44eEsOZYFuoYThD8PQkNgdB04t89/1O/w1cDnyilFU=")
@@ -96,6 +96,7 @@ def push_message():
         # 將完整錯誤顯示於 logs
         print("ERROR in /push:", repr(e))
         return jsonify({"ok": False, "error": str(e)}), 500
+
 
 
 
